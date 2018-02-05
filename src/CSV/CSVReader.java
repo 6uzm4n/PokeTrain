@@ -11,7 +11,6 @@ public class CSVReader {
     public static CSV readFile(String pPath, String pSeparator, String pTextMark, boolean pHeader) throws IOException {
         CSV csv = new CSV();
         BufferedReader reader = new BufferedReader(new FileReader(pPath));
-        String data = "";
         String readLine;
 
 
@@ -28,11 +27,12 @@ public class CSVReader {
 
         //Reads and sets the data of the csv file
         while ((readLine = reader.readLine()) != null){
-            String[] cntLine = readLine.split(pSeparator);
+            String[] cntLine;
+            cntLine = readLine.split(pSeparator);
             ArrayList<Object> dataLine = new ArrayList<>();
             for (int i = 0; i < cntLine.length; i++) {
                 if (cntLine[i].startsWith(pTextMark) && cntLine[i].endsWith(pTextMark)){
-                    dataLine.add((String)cntLine[i].replace(pTextMark, ""));
+                    dataLine.add(cntLine[i].replace(pTextMark, ""));
                 }else{
                     dataLine.add(cntLine[i]);
                 }

@@ -3,8 +3,8 @@ package CSV;
 import java.util.ArrayList;
 
 public class CSV {
-    ArrayList<String> header;
-    ArrayList<ArrayList<Object>> data;
+    private ArrayList<String> header;
+    private ArrayList<ArrayList<Object>> data;
 
     public CSV (){
          this.data = new ArrayList<>();
